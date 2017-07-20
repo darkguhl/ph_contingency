@@ -1,0 +1,36 @@
+body {
+  background-color: #000000;
+  overflow: hidden; }
+
+.star.star-icon {
+  background-repeat: no-repeat;
+  background-position: center; }
+  .star.star-icon.type-dual1 {
+    background-image: url("/images/orbs/ic_dualstar1.png"); }
+  .star.star-icon.type-dual2 {
+    background-image: url("/images/orbs/ic_dualstar2.png"); }
+  .star.star-icon.type-dwarf1 {
+    background-image: url("/images/orbs/ic_reddwarf1.png"); }
+  .star.star-icon.type-dwarf2 {
+    background-image: url("/images/orbs/ic_reddwarf2.png"); }
+  .star.star-icon.type-giant1 {
+    background-image: url("/images/orbs/ic_redgiant1.png"); }
+  .star.star-icon.type-giant2 {
+    background-image: url("/images/orbs/ic_redgiant2.png"); }
+  .star.star-icon.type-giant3 {
+    background-image: url("/images/orbs/ic_redgiant3.png"); }
+  .star.star-icon.type-supernova1 {
+    background-image: url("/images/orbs/ic_supernova2.png"); }
+  .star.star-icon.type-supernova2 {
+    background-image: url("/images/orbs/ic_supernova2.png"); }
+  .star.star-icon.type-typeg1 {
+    background-image: url("/images/orbs/ic_typg1.png"); }
+  .star.star-icon.type-typeg2 {
+    background-image: url("/images/orbs/ic_typg2.png"); }
+  .star.star-icon.type-typeg3 {
+    background-image: url("/images/orbs/ic_typg3.png"); }
+  .star.star-icon.type-typeg4 {
+    background-image: url("/images/orbs/ic_typg4.png"); }
+
+.star.star-name {
+  color: #CCFEFF; }

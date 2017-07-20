@@ -1,0 +1,68 @@
+﻿@import 'colors.scss';
+
+body {
+    background-color: $black;
+    overflow: hidden;
+}
+
+.star{
+&.star-icon {
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &.type-dual1 {
+        background-image: url('/images/orbs/ic_dualstar1.png');
+    }
+
+    &.type-dual2 {
+        background-image: url('/images/orbs/ic_dualstar2.png');
+    }
+
+    &.type-dwarf1 {
+        background-image: url('/images/orbs/ic_reddwarf1.png');
+    }
+
+    &.type-dwarf2 {
+        background-image: url('/images/orbs/ic_reddwarf2.png');
+    }
+
+    &.type-giant1 {
+        background-image: url('/images/orbs/ic_redgiant1.png');
+    }
+
+    &.type-giant2 {
+        background-image: url('/images/orbs/ic_redgiant2.png');
+    }
+
+    &.type-giant3 {
+        background-image: url('/images/orbs/ic_redgiant3.png');
+    }
+
+    &.type-supernova1 {
+        background-image: url('/images/orbs/ic_supernova2.png');
+    }
+
+    &.type-supernova2 {
+        background-image: url('/images/orbs/ic_supernova2.png');
+    }
+
+    &.type-typeg1 {
+        background-image: url('/images/orbs/ic_typg1.png');
+    }
+
+    &.type-typeg2 {
+        background-image: url('/images/orbs/ic_typg2.png');
+    }
+
+    &.type-typeg3 {
+        background-image: url('/images/orbs/ic_typg3.png');
+    }
+
+    &.type-typeg4 {
+        background-image: url('/images/orbs/ic_typg4.png');
+    }
+}
+&.star-name{
+    color: $highlight;
+}
+}

@@ -1,0 +1,1441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="ClusterSet" EntityType="Model1.Store.ClusterSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserSet" EntityType="Model1.Store.UserSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CorporationSet" EntityType="Model1.Store.CorporationSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ClassSet" EntityType="Model1.Store.ClassSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SkillSet" EntityType="Model1.Store.SkillSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FeatureSet" EntityType="Model1.Store.FeatureSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CelestialBodySet" EntityType="Model1.Store.CelestialBodySet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SkillAssignmentSet" EntityType="Model1.Store.SkillAssignmentSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FeatureAssignmentSet" EntityType="Model1.Store.FeatureAssignmentSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FleetSet" EntityType="Model1.Store.FleetSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ShipSet" EntityType="Model1.Store.ShipSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StationSet" EntityType="Model1.Store.StationSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ShipTypeSet" EntityType="Model1.Store.ShipTypeSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StationModuleSet" EntityType="Model1.Store.StationModuleSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StationModuleAssignmentSet" EntityType="Model1.Store.StationModuleAssignmentSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StationTypeSet" EntityType="Model1.Store.StationTypeSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="JobStatusInfoSet" EntityType="Model1.Store.JobStatusInfoSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CelestialBodySet_Star" EntityType="Model1.Store.CelestialBodySet_Star" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CelestialBodySet_Planet" EntityType="Model1.Store.CelestialBodySet_Planet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CelestialBodySet_Moon" EntityType="Model1.Store.CelestialBodySet_Moon" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CelestialBodySet_Asteroid" EntityType="Model1.Store.CelestialBodySet_Asteroid" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CelestialBodySet_Nebula" EntityType="Model1.Store.CelestialBodySet_Nebula" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="UserCorporation" Association="Model1.Store.UserCorporation">
+      <End Role="User" EntitySet="UserSet" />
+      <End Role="Corporation" EntitySet="CorporationSet" />
+    </AssociationSet>
+    <AssociationSet Name="ClusterCorporation" Association="Model1.Store.ClusterCorporation">
+      <End Role="Cluster" EntitySet="ClusterSet" />
+      <End Role="Corporation" EntitySet="CorporationSet" />
+    </AssociationSet>
+    <AssociationSet Name="ClusterStar" Association="Model1.Store.ClusterStar">
+      <End Role="Cluster" EntitySet="ClusterSet" />
+      <End Role="Star" EntitySet="CelestialBodySet_Star" />
+    </AssociationSet>
+    <AssociationSet Name="StarPlanet" Association="Model1.Store.StarPlanet">
+      <End Role="Star" EntitySet="CelestialBodySet_Star" />
+      <End Role="Planet" EntitySet="CelestialBodySet_Planet" />
+    </AssociationSet>
+    <AssociationSet Name="PlanetMoon" Association="Model1.Store.PlanetMoon">
+      <End Role="Planet" EntitySet="CelestialBodySet_Planet" />
+      <End Role="Moon" EntitySet="CelestialBodySet_Moon" />
+    </AssociationSet>
+    <AssociationSet Name="StarAsteroid" Association="Model1.Store.StarAsteroid">
+      <End Role="Star" EntitySet="CelestialBodySet_Star" />
+      <End Role="Asteroid" EntitySet="CelestialBodySet_Asteroid" />
+    </AssociationSet>
+    <AssociationSet Name="StarNebula" Association="Model1.Store.StarNebula">
+      <End Role="Star" EntitySet="CelestialBodySet_Star" />
+      <End Role="Nebula" EntitySet="CelestialBodySet_Nebula" />
+    </AssociationSet>
+    <AssociationSet Name="ClassCorporation" Association="Model1.Store.ClassCorporation">
+      <End Role="Class" EntitySet="ClassSet" />
+      <End Role="Corporation" EntitySet="CorporationSet" />
+    </AssociationSet>
+    <AssociationSet Name="ClassSkill" Association="Model1.Store.ClassSkill">
+      <End Role="Class" EntitySet="ClassSet" />
+      <End Role="Skill" EntitySet="SkillSet" />
+    </AssociationSet>
+    <AssociationSet Name="SkillSkillAssignment" Association="Model1.Store.SkillSkillAssignment">
+      <End Role="Skill" EntitySet="SkillSet" />
+      <End Role="SkillAssignment" EntitySet="SkillAssignmentSet" />
+    </AssociationSet>
+    <AssociationSet Name="CorporationSkillAssignment" Association="Model1.Store.CorporationSkillAssignment">
+      <End Role="Corporation" EntitySet="CorporationSet" />
+      <End Role="SkillAssignment" EntitySet="SkillAssignmentSet" />
+    </AssociationSet>
+    <AssociationSet Name="FeatureFeatureAssignment" Association="Model1.Store.FeatureFeatureAssignment">
+      <End Role="Feature" EntitySet="FeatureSet" />
+      <End Role="FeatureAssignment" EntitySet="FeatureAssignmentSet" />
+    </AssociationSet>
+    <AssociationSet Name="CorporationFeatureAssignment" Association="Model1.Store.CorporationFeatureAssignment">
+      <End Role="Corporation" EntitySet="CorporationSet" />
+      <End Role="FeatureAssignment" EntitySet="FeatureAssignmentSet" />
+    </AssociationSet>
+    <AssociationSet Name="StationStationModuleAssignment" Association="Model1.Store.StationStationModuleAssignment">
+      <End Role="Station" EntitySet="StationSet" />
+      <End Role="StationModuleAssignment" EntitySet="StationModuleAssignmentSet" />
+    </AssociationSet>
+    <AssociationSet Name="StationModuleStationModuleAssignment" Association="Model1.Store.StationModuleStationModuleAssignment">
+      <End Role="StationModule" EntitySet="StationModuleSet" />
+      <End Role="StationModuleAssignment" EntitySet="StationModuleAssignmentSet" />
+    </AssociationSet>
+    <AssociationSet Name="StationCelestialBody" Association="Model1.Store.StationCelestialBody">
+      <End Role="Station" EntitySet="StationSet" />
+      <End Role="CelestialBody" EntitySet="CelestialBodySet" />
+    </AssociationSet>
+    <AssociationSet Name="FleetCelestialBody" Association="Model1.Store.FleetCelestialBody">
+      <End Role="Fleet" EntitySet="FleetSet" />
+      <End Role="CelestialBody" EntitySet="CelestialBodySet" />
+    </AssociationSet>
+    <AssociationSet Name="FleetShip" Association="Model1.Store.FleetShip">
+      <End Role="Fleet" EntitySet="FleetSet" />
+      <End Role="Ship" EntitySet="ShipSet" />
+    </AssociationSet>
+    <AssociationSet Name="ShipTypeShip" Association="Model1.Store.ShipTypeShip">
+      <End Role="ShipType" EntitySet="ShipTypeSet" />
+      <End Role="Ship" EntitySet="ShipSet" />
+    </AssociationSet>
+    <AssociationSet Name="StationTypeStation" Association="Model1.Store.StationTypeStation">
+      <End Role="StationType" EntitySet="StationTypeSet" />
+      <End Role="Station" EntitySet="StationSet" />
+    </AssociationSet>
+    <AssociationSet Name="CelestialBodyFleet" Association="Model1.Store.CelestialBodyFleet">
+      <End Role="CelestialBody" EntitySet="CelestialBodySet" />
+      <End Role="Fleet" EntitySet="FleetSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Star_inherits_CelestialBody" Association="Model1.Store.FK_Star_inherits_CelestialBody">
+      <End Role="CelestialBody" EntitySet="CelestialBodySet" />
+      <End Role="Star" EntitySet="CelestialBodySet_Star" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Planet_inherits_CelestialBody" Association="Model1.Store.FK_Planet_inherits_CelestialBody">
+      <End Role="CelestialBody" EntitySet="CelestialBodySet" />
+      <End Role="Planet" EntitySet="CelestialBodySet_Planet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Moon_inherits_CelestialBody" Association="Model1.Store.FK_Moon_inherits_CelestialBody">
+      <End Role="CelestialBody" EntitySet="CelestialBodySet" />
+      <End Role="Moon" EntitySet="CelestialBodySet_Moon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Asteroid_inherits_CelestialBody" Association="Model1.Store.FK_Asteroid_inherits_CelestialBody">
+      <End Role="CelestialBody" EntitySet="CelestialBodySet" />
+      <End Role="Asteroid" EntitySet="CelestialBodySet_Asteroid" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Nebula_inherits_CelestialBody" Association="Model1.Store.FK_Nebula_inherits_CelestialBody">
+      <End Role="CelestialBody" EntitySet="CelestialBodySet" />
+      <End Role="Nebula" EntitySet="CelestialBodySet_Nebula" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ClusterSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ExtentX" Type="int" Nullable="false" />
+    <Property Name="ExtentY" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PasswordSalt" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RoleType" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CorporationSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Users_Id" Type="int" Nullable="false" />
+    <Property Name="Cluster_Id" Type="int" Nullable="false" />
+    <Property Name="Class_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClassSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SkillSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Class_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FeatureSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CelestialBodySet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="X" Type="float" Nullable="false" />
+    <Property Name="Y" Type="float" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Dimension" Type="int" Nullable="false" />
+    <Property Name="Angle" Type="float" Nullable="true" />
+    <Property Name="Radius" Type="float" Nullable="true" />
+    <Property Name="CssClass" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SkillAssignmentSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SkillId" Type="int" Nullable="false" />
+    <Property Name="CorporationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FeatureAssignmentSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FeatureId" Type="int" Nullable="false" />
+    <Property Name="CorporationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FleetSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Origin_Id" Type="int" Nullable="false" />
+    <Property Name="Destination_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="ShipSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Fleet_Id" Type="int" Nullable="false" />
+    <Property Name="ShipType_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StationSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="CelestialBody_Id" Type="int" Nullable="false" />
+    <Property Name="StationType_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShipTypeSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StationModuleSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StationModuleAssignmentSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StationId" Type="int" Nullable="false" />
+    <Property Name="StationModuleId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StationTypeSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="JobStatusInfoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Key" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Progress" Type="int" Nullable="false" />
+    <Property Name="Message" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Succeded" Type="bit" Nullable="true" />
+  </EntityType>
+  <EntityType Name="CelestialBodySet_Star">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Cluster_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CelestialBodySet_Planet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Star_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CelestialBodySet_Moon">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Planet_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CelestialBodySet_Asteroid">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Star_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CelestialBodySet_Nebula">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Star_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="UserCorporation">
+    <End Role="User" Type="Model1.Store.UserSet" Multiplicity="1" />
+    <End Role="Corporation" Type="Model1.Store.CorporationSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Corporation">
+        <PropertyRef Name="Users_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClusterCorporation">
+    <End Role="Cluster" Type="Model1.Store.ClusterSet" Multiplicity="1" />
+    <End Role="Corporation" Type="Model1.Store.CorporationSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cluster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Corporation">
+        <PropertyRef Name="Cluster_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClusterStar">
+    <End Role="Cluster" Type="Model1.Store.ClusterSet" Multiplicity="1" />
+    <End Role="Star" Type="Model1.Store.CelestialBodySet_Star" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cluster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Star">
+        <PropertyRef Name="Cluster_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StarPlanet">
+    <End Role="Star" Type="Model1.Store.CelestialBodySet_Star" Multiplicity="1" />
+    <End Role="Planet" Type="Model1.Store.CelestialBodySet_Planet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Star">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Planet">
+        <PropertyRef Name="Star_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PlanetMoon">
+    <End Role="Planet" Type="Model1.Store.CelestialBodySet_Planet" Multiplicity="1" />
+    <End Role="Moon" Type="Model1.Store.CelestialBodySet_Moon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Planet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Moon">
+        <PropertyRef Name="Planet_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StarAsteroid">
+    <End Role="Star" Type="Model1.Store.CelestialBodySet_Star" Multiplicity="1" />
+    <End Role="Asteroid" Type="Model1.Store.CelestialBodySet_Asteroid" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Star">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Asteroid">
+        <PropertyRef Name="Star_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StarNebula">
+    <End Role="Star" Type="Model1.Store.CelestialBodySet_Star" Multiplicity="1" />
+    <End Role="Nebula" Type="Model1.Store.CelestialBodySet_Nebula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Star">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Nebula">
+        <PropertyRef Name="Star_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClassCorporation">
+    <End Role="Class" Type="Model1.Store.ClassSet" Multiplicity="1" />
+    <End Role="Corporation" Type="Model1.Store.CorporationSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Corporation">
+        <PropertyRef Name="Class_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClassSkill">
+    <End Role="Class" Type="Model1.Store.ClassSet" Multiplicity="1" />
+    <End Role="Skill" Type="Model1.Store.SkillSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Skill">
+        <PropertyRef Name="Class_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SkillSkillAssignment">
+    <End Role="Skill" Type="Model1.Store.SkillSet" Multiplicity="1" />
+    <End Role="SkillAssignment" Type="Model1.Store.SkillAssignmentSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Skill">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SkillAssignment">
+        <PropertyRef Name="SkillId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CorporationSkillAssignment">
+    <End Role="Corporation" Type="Model1.Store.CorporationSet" Multiplicity="1" />
+    <End Role="SkillAssignment" Type="Model1.Store.SkillAssignmentSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Corporation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SkillAssignment">
+        <PropertyRef Name="CorporationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FeatureFeatureAssignment">
+    <End Role="Feature" Type="Model1.Store.FeatureSet" Multiplicity="1" />
+    <End Role="FeatureAssignment" Type="Model1.Store.FeatureAssignmentSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Feature">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FeatureAssignment">
+        <PropertyRef Name="FeatureId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CorporationFeatureAssignment">
+    <End Role="Corporation" Type="Model1.Store.CorporationSet" Multiplicity="1" />
+    <End Role="FeatureAssignment" Type="Model1.Store.FeatureAssignmentSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Corporation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FeatureAssignment">
+        <PropertyRef Name="CorporationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StationStationModuleAssignment">
+    <End Role="Station" Type="Model1.Store.StationSet" Multiplicity="1" />
+    <End Role="StationModuleAssignment" Type="Model1.Store.StationModuleAssignmentSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Station">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StationModuleAssignment">
+        <PropertyRef Name="StationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StationModuleStationModuleAssignment">
+    <End Role="StationModule" Type="Model1.Store.StationModuleSet" Multiplicity="1" />
+    <End Role="StationModuleAssignment" Type="Model1.Store.StationModuleAssignmentSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StationModule">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StationModuleAssignment">
+        <PropertyRef Name="StationModuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StationCelestialBody">
+    <End Role="Station" Type="Model1.Store.StationSet" Multiplicity="*" />
+    <End Role="CelestialBody" Type="Model1.Store.CelestialBodySet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="CelestialBody">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Station">
+        <PropertyRef Name="CelestialBody_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FleetCelestialBody">
+    <End Role="Fleet" Type="Model1.Store.FleetSet" Multiplicity="*" />
+    <End Role="CelestialBody" Type="Model1.Store.CelestialBodySet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="CelestialBody">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Fleet">
+        <PropertyRef Name="Origin_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FleetShip">
+    <End Role="Fleet" Type="Model1.Store.FleetSet" Multiplicity="1" />
+    <End Role="Ship" Type="Model1.Store.ShipSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fleet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ship">
+        <PropertyRef Name="Fleet_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ShipTypeShip">
+    <End Role="ShipType" Type="Model1.Store.ShipTypeSet" Multiplicity="1" />
+    <End Role="Ship" Type="Model1.Store.ShipSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShipType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ship">
+        <PropertyRef Name="ShipType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StationTypeStation">
+    <End Role="StationType" Type="Model1.Store.StationTypeSet" Multiplicity="1" />
+    <End Role="Station" Type="Model1.Store.StationSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StationType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Station">
+        <PropertyRef Name="StationType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CelestialBodyFleet">
+    <End Role="CelestialBody" Type="Model1.Store.CelestialBodySet" Multiplicity="0..1" />
+    <End Role="Fleet" Type="Model1.Store.FleetSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CelestialBody">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Fleet">
+        <PropertyRef Name="Destination_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Star_inherits_CelestialBody">
+    <End Role="CelestialBody" Type="Model1.Store.CelestialBodySet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Star" Type="Model1.Store.CelestialBodySet_Star" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="CelestialBody">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Star">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Planet_inherits_CelestialBody">
+    <End Role="CelestialBody" Type="Model1.Store.CelestialBodySet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Planet" Type="Model1.Store.CelestialBodySet_Planet" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="CelestialBody">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Planet">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Moon_inherits_CelestialBody">
+    <End Role="CelestialBody" Type="Model1.Store.CelestialBodySet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Moon" Type="Model1.Store.CelestialBodySet_Moon" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="CelestialBody">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Moon">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Asteroid_inherits_CelestialBody">
+    <End Role="CelestialBody" Type="Model1.Store.CelestialBodySet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Asteroid" Type="Model1.Store.CelestialBodySet_Asteroid" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="CelestialBody">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Asteroid">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Nebula_inherits_CelestialBody">
+    <End Role="CelestialBody" Type="Model1.Store.CelestialBodySet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Nebula" Type="Model1.Store.CelestialBodySet_Nebula" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="CelestialBody">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Nebula">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="PhContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ClusterSet" EntityType="Model1.Cluster" />
+          <EntitySet Name="UserSet" EntityType="Model1.User" />
+          <EntitySet Name="CorporationSet" EntityType="Model1.Corporation" />
+          <EntitySet Name="ClassSet" EntityType="Model1.Class" />
+          <EntitySet Name="SkillSet" EntityType="Model1.Skill" />
+          <AssociationSet Name="UserCorporation" Association="Model1.UserCorporation">
+            <End Role="User" EntitySet="UserSet" />
+            <End Role="Corporation" EntitySet="CorporationSet" />
+          </AssociationSet>
+          <AssociationSet Name="ClusterCorporation" Association="Model1.ClusterCorporation">
+            <End Role="Cluster" EntitySet="ClusterSet" />
+            <End Role="Corporation" EntitySet="CorporationSet" />
+          </AssociationSet>
+          <AssociationSet Name="ClusterStar" Association="Model1.ClusterStar">
+            <End Role="Cluster" EntitySet="ClusterSet" />
+            <End Role="Star" EntitySet="CelestialBodySet" />
+          </AssociationSet>
+          <AssociationSet Name="StarPlanet" Association="Model1.StarPlanet">
+            <End Role="Star" EntitySet="CelestialBodySet" />
+            <End Role="Planet" EntitySet="CelestialBodySet" />
+          </AssociationSet>
+          <AssociationSet Name="PlanetMoon" Association="Model1.PlanetMoon">
+            <End Role="Planet" EntitySet="CelestialBodySet" />
+            <End Role="Moon" EntitySet="CelestialBodySet" />
+          </AssociationSet>
+          <AssociationSet Name="StarAsteroid" Association="Model1.StarAsteroid">
+            <End Role="Star" EntitySet="CelestialBodySet" />
+            <End Role="Asteroid" EntitySet="CelestialBodySet" />
+          </AssociationSet>
+          <AssociationSet Name="StarNebula" Association="Model1.StarNebula">
+            <End Role="Star" EntitySet="CelestialBodySet" />
+            <End Role="Nebula" EntitySet="CelestialBodySet" />
+          </AssociationSet>
+          <AssociationSet Name="ClassCorporation" Association="Model1.ClassCorporation">
+            <End Role="Class" EntitySet="ClassSet" />
+            <End Role="Corporation" EntitySet="CorporationSet" />
+          </AssociationSet>
+          <AssociationSet Name="ClassSkill" Association="Model1.ClassSkill">
+            <End Role="Class" EntitySet="ClassSet" />
+            <End Role="Skill" EntitySet="SkillSet" />
+          </AssociationSet>
+          <EntitySet Name="FeatureSet" EntityType="Model1.Feature" />
+          <EntitySet Name="CelestialBodySet" EntityType="Model1.CelestialBody" />
+          <EntitySet Name="SkillAssignmentSet" EntityType="Model1.SkillAssignment" />
+          <AssociationSet Name="SkillSkillAssignment" Association="Model1.SkillSkillAssignment">
+            <End Role="Skill" EntitySet="SkillSet" />
+            <End Role="SkillAssignment" EntitySet="SkillAssignmentSet" />
+          </AssociationSet>
+          <AssociationSet Name="CorporationSkillAssignment" Association="Model1.CorporationSkillAssignment">
+            <End Role="Corporation" EntitySet="CorporationSet" />
+            <End Role="SkillAssignment" EntitySet="SkillAssignmentSet" />
+          </AssociationSet>
+          <EntitySet Name="FeatureAssignmentSet" EntityType="Model1.FeatureAssignment" />
+          <AssociationSet Name="FeatureFeatureAssignment" Association="Model1.FeatureFeatureAssignment">
+            <End Role="Feature" EntitySet="FeatureSet" />
+            <End Role="FeatureAssignment" EntitySet="FeatureAssignmentSet" />
+          </AssociationSet>
+          <AssociationSet Name="CorporationFeatureAssignment" Association="Model1.CorporationFeatureAssignment">
+            <End Role="Corporation" EntitySet="CorporationSet" />
+            <End Role="FeatureAssignment" EntitySet="FeatureAssignmentSet" />
+          </AssociationSet>
+          <EntitySet Name="FleetSet" EntityType="Model1.Fleet" />
+          <EntitySet Name="ShipSet" EntityType="Model1.Ship" />
+          <EntitySet Name="StationSet" EntityType="Model1.Station" />
+          <EntitySet Name="ShipTypeSet" EntityType="Model1.ShipType" />
+          <EntitySet Name="StationModuleSet" EntityType="Model1.StationModule" />
+          <EntitySet Name="StationModuleAssignmentSet" EntityType="Model1.StationModuleAssignment" />
+          <AssociationSet Name="StationStationModuleAssignment" Association="Model1.StationStationModuleAssignment">
+            <End Role="Station" EntitySet="StationSet" />
+            <End Role="StationModuleAssignment" EntitySet="StationModuleAssignmentSet" />
+          </AssociationSet>
+          <AssociationSet Name="StationModuleStationModuleAssignment" Association="Model1.StationModuleStationModuleAssignment">
+            <End Role="StationModule" EntitySet="StationModuleSet" />
+            <End Role="StationModuleAssignment" EntitySet="StationModuleAssignmentSet" />
+          </AssociationSet>
+          <AssociationSet Name="StationCelestialBody" Association="Model1.StationCelestialBody">
+            <End Role="Station" EntitySet="StationSet" />
+            <End Role="CelestialBody" EntitySet="CelestialBodySet" />
+          </AssociationSet>
+          <AssociationSet Name="FleetCelestialBody" Association="Model1.FleetCelestialBody">
+            <End Role="Fleet" EntitySet="FleetSet" />
+            <End Role="CelestialBody" EntitySet="CelestialBodySet" />
+          </AssociationSet>
+          <AssociationSet Name="FleetShip" Association="Model1.FleetShip">
+            <End Role="Fleet" EntitySet="FleetSet" />
+            <End Role="Ship" EntitySet="ShipSet" />
+          </AssociationSet>
+          <AssociationSet Name="ShipTypeShip" Association="Model1.ShipTypeShip">
+            <End Role="ShipType" EntitySet="ShipTypeSet" />
+            <End Role="Ship" EntitySet="ShipSet" />
+          </AssociationSet>
+          <EntitySet Name="StationTypeSet" EntityType="Model1.StationType" />
+          <AssociationSet Name="StationTypeStation" Association="Model1.StationTypeStation">
+            <End Role="StationType" EntitySet="StationTypeSet" />
+            <End Role="Station" EntitySet="StationSet" />
+          </AssociationSet>
+          <AssociationSet Name="CelestialBodyFleet" Association="Model1.CelestialBodyFleet">
+            <End Role="CelestialBody" EntitySet="CelestialBodySet" />
+            <End Role="Fleet" EntitySet="FleetSet" />
+          </AssociationSet>
+          <EntitySet Name="JobStatusInfoSet" EntityType="Model1.JobStatusInfo" />
+          </EntityContainer>
+        <EntityType Name="Cluster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Corporations" Relationship="Model1.ClusterCorporation" FromRole="Cluster" ToRole="Corporation" />
+          <NavigationProperty Name="Stars" Relationship="Model1.ClusterStar" FromRole="Cluster" ToRole="Star" />
+          <Property Name="ExtentX" Type="Int32" Nullable="false" />
+          <Property Name="ExtentY" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" />
+          <NavigationProperty Name="Corporation" Relationship="Model1.UserCorporation" FromRole="User" ToRole="Corporation" />
+          <Property Name="PasswordSalt" Type="String" Nullable="false" />
+          <Property Name="RoleType" Type="Model1.RoleType" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Corporation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Model1.UserCorporation" FromRole="Corporation" ToRole="User" />
+          <NavigationProperty Name="Cluster" Relationship="Model1.ClusterCorporation" FromRole="Corporation" ToRole="Cluster" />
+          <NavigationProperty Name="Class" Relationship="Model1.ClassCorporation" FromRole="Corporation" ToRole="Class" />
+          <NavigationProperty Name="SkillAssignments" Relationship="Model1.CorporationSkillAssignment" FromRole="Corporation" ToRole="SkillAssignment" />
+          <NavigationProperty Name="FeatureAssignments" Relationship="Model1.CorporationFeatureAssignment" FromRole="Corporation" ToRole="FeatureAssignment" />
+        </EntityType>
+        <EntityType Name="Class">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Corporations" Relationship="Model1.ClassCorporation" FromRole="Class" ToRole="Corporation" />
+          <NavigationProperty Name="Skills" Relationship="Model1.ClassSkill" FromRole="Class" ToRole="Skill" />
+        </EntityType>
+        <EntityType Name="Skill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Class" Relationship="Model1.ClassSkill" FromRole="Skill" ToRole="Class" />
+          <NavigationProperty Name="SkillAssignments" Relationship="Model1.SkillSkillAssignment" FromRole="Skill" ToRole="SkillAssignment" />
+        </EntityType>
+        <EntityType Name="Star" BaseType="Model1.CelestialBody">
+          <Property Name="Type" Type="Model1.StarType" Nullable="false" />
+          <NavigationProperty Name="Cluster" Relationship="Model1.ClusterStar" FromRole="Star" ToRole="Cluster" />
+          <NavigationProperty Name="Planets" Relationship="Model1.StarPlanet" FromRole="Star" ToRole="Planet" />
+          <NavigationProperty Name="Asteroids" Relationship="Model1.StarAsteroid" FromRole="Star" ToRole="Asteroid" />
+          <NavigationProperty Name="Nebulas" Relationship="Model1.StarNebula" FromRole="Star" ToRole="Nebula" />
+        </EntityType>
+        <EnumType Name="StarType">
+          <Member Name="Typeg" Value="0" />
+          <Member Name="Supernova" Value="1" />
+          <Member Name="Dualstar" Value="2" />
+          <Member Name="Redgiant" Value="3" />
+          <Member Name="Reddwarf" Value="4" />
+          <Member Name="Whitedwarf" Value="5" />
+        </EnumType>
+        <EntityType Name="Planet" BaseType="Model1.CelestialBody">
+          <Property Name="Type" Type="Model1.PlanetType" Nullable="false" />
+          <NavigationProperty Name="Star" Relationship="Model1.StarPlanet" FromRole="Planet" ToRole="Star" />
+          <NavigationProperty Name="Moons" Relationship="Model1.PlanetMoon" FromRole="Planet" ToRole="Moon" />
+        </EntityType>
+        <EnumType Name="PlanetType">
+          <Member Name="Terra" Value="0" />
+          <Member Name="Gas" Value="1" />
+          <Member Name="Ice" Value="2" />
+          <Member Name="Lava" Value="3" />
+        </EnumType>
+        <Association Name="UserCorporation">
+          <End Type="Model1.User" Role="User" Multiplicity="1" />
+          <End Type="Model1.Corporation" Role="Corporation" Multiplicity="*" />
+        </Association>
+        <Association Name="ClusterCorporation">
+          <End Type="Model1.Cluster" Role="Cluster" Multiplicity="1" />
+          <End Type="Model1.Corporation" Role="Corporation" Multiplicity="*" />
+        </Association>
+        <Association Name="ClusterStar">
+          <End Type="Model1.Cluster" Role="Cluster" Multiplicity="1" />
+          <End Type="Model1.Star" Role="Star" Multiplicity="*" />
+        </Association>
+        <Association Name="StarPlanet">
+          <End Type="Model1.Star" Role="Star" Multiplicity="1" />
+          <End Type="Model1.Planet" Role="Planet" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Moon" BaseType="Model1.CelestialBody">
+          <Property Name="Type" Type="Model1.MoonType" Nullable="false" />
+          <NavigationProperty Name="Planet" Relationship="Model1.PlanetMoon" FromRole="Moon" ToRole="Planet" />
+        </EntityType>
+        <EnumType Name="MoonType">
+          <Member Name="Ice" Value="0" />
+          <Member Name="Lava" Value="1" />
+          <Member Name="Terra" Value="2" />
+          <Member Name="Stone" Value="3" />
+        </EnumType>
+        <Association Name="PlanetMoon">
+          <End Type="Model1.Planet" Role="Planet" Multiplicity="1" />
+          <End Type="Model1.Moon" Role="Moon" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Asteroid" BaseType="Model1.CelestialBody">
+          <Property Name="Type" Type="Model1.AsteroidType" Nullable="false" />
+          <NavigationProperty Name="Star" Relationship="Model1.StarAsteroid" FromRole="Asteroid" ToRole="Star" />
+        </EntityType>
+        <EnumType Name="AsteroidType">
+          <Member Name="Ice" Value="0" />
+          <Member Name="Metal" Value="1" />
+          <Member Name="Stone" Value="2" />
+        </EnumType>
+        <EntityType Name="Nebula" BaseType="Model1.CelestialBody">
+          <Property Name="Type" Type="Model1.NebulaType" Nullable="false" />
+          <NavigationProperty Name="Star" Relationship="Model1.StarNebula" FromRole="Nebula" ToRole="Star" />
+        </EntityType>
+        <EnumType Name="NebulaType">
+          <Member Name="DiamondDust" Value="0" />
+          <Member Name="Argon" Value="1" />
+          <Member Name="Xenon" Value="2" />
+        </EnumType>
+        <Association Name="StarAsteroid">
+          <End Type="Model1.Star" Role="Star" Multiplicity="1" />
+          <End Type="Model1.Asteroid" Role="Asteroid" Multiplicity="*" />
+        </Association>
+        <Association Name="StarNebula">
+          <End Type="Model1.Star" Role="Star" Multiplicity="1" />
+          <End Type="Model1.Nebula" Role="Nebula" Multiplicity="*" />
+        </Association>
+        <Association Name="ClassCorporation">
+          <End Type="Model1.Class" Role="Class" Multiplicity="1" />
+          <End Type="Model1.Corporation" Role="Corporation" Multiplicity="*" />
+        </Association>
+        <Association Name="ClassSkill">
+          <End Type="Model1.Class" Role="Class" Multiplicity="1" />
+          <End Type="Model1.Skill" Role="Skill" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Feature">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="FeatureAssignments" Relationship="Model1.FeatureFeatureAssignment" FromRole="Feature" ToRole="FeatureAssignment" />
+        </EntityType>
+        <EntityType Name="CelestialBody">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="X" Type="Double" Nullable="false" />
+          <Property Name="Y" Type="Double" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Station" Relationship="Model1.StationCelestialBody" FromRole="CelestialBody" ToRole="Station" />
+          <NavigationProperty Name="OriginFleet" Relationship="Model1.FleetCelestialBody" FromRole="CelestialBody" ToRole="Fleet" />
+          <NavigationProperty Name="DestinationFleets" Relationship="Model1.CelestialBodyFleet" FromRole="CelestialBody" ToRole="Fleet" />
+          <Property Name="Dimension" Type="Model1.Dimension" Nullable="false" />
+          <Property Name="Angle" Type="Double" Nullable="true" />
+          <Property Name="Radius" Type="Double" Nullable="true" />
+          <Property Name="CssClass" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SkillAssignment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Skill" Relationship="Model1.SkillSkillAssignment" FromRole="SkillAssignment" ToRole="Skill" />
+          <Property Name="SkillId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Corporation" Relationship="Model1.CorporationSkillAssignment" FromRole="SkillAssignment" ToRole="Corporation" />
+          <Property Name="CorporationId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="SkillSkillAssignment">
+          <End Type="Model1.Skill" Role="Skill" Multiplicity="1" />
+          <End Type="Model1.SkillAssignment" Role="SkillAssignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skill">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SkillAssignment">
+              <PropertyRef Name="SkillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CorporationSkillAssignment">
+          <End Type="Model1.Corporation" Role="Corporation" Multiplicity="1" />
+          <End Type="Model1.SkillAssignment" Role="SkillAssignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Corporation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SkillAssignment">
+              <PropertyRef Name="CorporationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="FeatureAssignment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Feature" Relationship="Model1.FeatureFeatureAssignment" FromRole="FeatureAssignment" ToRole="Feature" />
+          <Property Name="FeatureId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Corporation" Relationship="Model1.CorporationFeatureAssignment" FromRole="FeatureAssignment" ToRole="Corporation" />
+          <Property Name="CorporationId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FeatureFeatureAssignment">
+          <End Type="Model1.Feature" Role="Feature" Multiplicity="1" />
+          <End Type="Model1.FeatureAssignment" Role="FeatureAssignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Feature">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FeatureAssignment">
+              <PropertyRef Name="FeatureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CorporationFeatureAssignment">
+          <End Type="Model1.Corporation" Role="Corporation" Multiplicity="1" />
+          <End Type="Model1.FeatureAssignment" Role="FeatureAssignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Corporation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FeatureAssignment">
+              <PropertyRef Name="CorporationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Fleet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Origin" Relationship="Model1.FleetCelestialBody" FromRole="Fleet" ToRole="CelestialBody" />
+          <NavigationProperty Name="Ship" Relationship="Model1.FleetShip" FromRole="Fleet" ToRole="Ship" />
+          <NavigationProperty Name="Destination" Relationship="Model1.CelestialBodyFleet" FromRole="Fleet" ToRole="CelestialBody" />
+        </EntityType>
+        <EntityType Name="Ship">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Fleet" Relationship="Model1.FleetShip" FromRole="Ship" ToRole="Fleet" />
+          <NavigationProperty Name="ShipType" Relationship="Model1.ShipTypeShip" FromRole="Ship" ToRole="ShipType" />
+        </EntityType>
+        <EntityType Name="Station">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="StationModuleAssignments" Relationship="Model1.StationStationModuleAssignment" FromRole="Station" ToRole="StationModuleAssignment" />
+          <NavigationProperty Name="CelestialBody" Relationship="Model1.StationCelestialBody" FromRole="Station" ToRole="CelestialBody" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="StationType" Relationship="Model1.StationTypeStation" FromRole="Station" ToRole="StationType" />
+        </EntityType>
+        <EntityType Name="ShipType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Ship" Relationship="Model1.ShipTypeShip" FromRole="ShipType" ToRole="Ship" />
+        </EntityType>
+        <EntityType Name="StationModule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="StationModuleAssignments" Relationship="Model1.StationModuleStationModuleAssignment" FromRole="StationModule" ToRole="StationModuleAssignment" />
+        </EntityType>
+        <EntityType Name="StationModuleAssignment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Station" Relationship="Model1.StationStationModuleAssignment" FromRole="StationModuleAssignment" ToRole="Station" />
+          <Property Name="StationId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="StationModule" Relationship="Model1.StationModuleStationModuleAssignment" FromRole="StationModuleAssignment" ToRole="StationModule" />
+          <Property Name="StationModuleId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="StationStationModuleAssignment">
+          <End Type="Model1.Station" Role="Station" Multiplicity="1" />
+          <End Type="Model1.StationModuleAssignment" Role="StationModuleAssignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Station">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StationModuleAssignment">
+              <PropertyRef Name="StationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StationModuleStationModuleAssignment">
+          <End Type="Model1.StationModule" Role="StationModule" Multiplicity="1" />
+          <End Type="Model1.StationModuleAssignment" Role="StationModuleAssignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StationModule">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StationModuleAssignment">
+              <PropertyRef Name="StationModuleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StationCelestialBody">
+          <End Type="Model1.Station" Role="Station" Multiplicity="0..1" />
+          <End Type="Model1.CelestialBody" Role="CelestialBody" Multiplicity="1" />
+        </Association>
+        <Association Name="FleetCelestialBody">
+          <End Type="Model1.Fleet" Role="Fleet" Multiplicity="0..1" />
+          <End Type="Model1.CelestialBody" Role="CelestialBody" Multiplicity="1" />
+        </Association>
+        <Association Name="FleetShip">
+          <End Type="Model1.Fleet" Role="Fleet" Multiplicity="1" />
+          <End Type="Model1.Ship" Role="Ship" Multiplicity="*" />
+        </Association>
+        <Association Name="ShipTypeShip">
+          <End Type="Model1.ShipType" Role="ShipType" Multiplicity="1" />
+          <End Type="Model1.Ship" Role="Ship" Multiplicity="*" />
+        </Association>
+        <EntityType Name="StationType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Station" Relationship="Model1.StationTypeStation" FromRole="StationType" ToRole="Station" />
+        </EntityType>
+        <Association Name="StationTypeStation">
+          <End Type="Model1.StationType" Role="StationType" Multiplicity="1" />
+          <End Type="Model1.Station" Role="Station" Multiplicity="*" />
+        </Association>
+        <Association Name="CelestialBodyFleet">
+          <End Type="Model1.CelestialBody" Role="CelestialBody" Multiplicity="0..1" />
+          <End Type="Model1.Fleet" Role="Fleet" Multiplicity="*" />
+        </Association>
+        <EnumType Name="RoleType">
+          <Member Name="User" Value="0" />
+          <Member Name="Admin" Value="1" />
+        </EnumType>
+        <EnumType Name="Dimension">
+          <Member Name="Medium" Value="0" />
+          <Member Name="Small" Value="1" />
+          <Member Name="Large" Value="2" />
+        </EnumType>
+        <EntityType Name="JobStatusInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Key" Type="Guid" Nullable="false" />
+          <Property Name="Progress" Type="Int32" Nullable="false" />
+          <Property Name="Message" Type="String" Nullable="true" />
+          <Property Name="Succeded" Type="Boolean" Nullable="true" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="PhContext">
+    <EntitySetMapping Name="ClusterSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Cluster)">
+        <MappingFragment StoreEntitySet="ClusterSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ExtentX" ColumnName="ExtentX" />
+          <ScalarProperty Name="ExtentY" ColumnName="ExtentY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.User)">
+        <MappingFragment StoreEntitySet="UserSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="RoleType" ColumnName="RoleType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CorporationSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Corporation)">
+        <MappingFragment StoreEntitySet="CorporationSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClassSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Class)">
+        <MappingFragment StoreEntitySet="ClassSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SkillSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Skill)">
+        <MappingFragment StoreEntitySet="SkillSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeatureSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Feature)">
+        <MappingFragment StoreEntitySet="FeatureSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CelestialBodySet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.CelestialBody)">
+        <MappingFragment StoreEntitySet="CelestialBodySet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="X" ColumnName="X" />
+          <ScalarProperty Name="Y" ColumnName="Y" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Dimension" ColumnName="Dimension" />
+          <ScalarProperty Name="Angle" ColumnName="Angle" />
+          <ScalarProperty Name="Radius" ColumnName="Radius" />
+          <ScalarProperty Name="CssClass" ColumnName="CssClass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Star)">
+        <MappingFragment StoreEntitySet="CelestialBodySet_Star">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Planet)">
+        <MappingFragment StoreEntitySet="CelestialBodySet_Planet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Moon)">
+        <MappingFragment StoreEntitySet="CelestialBodySet_Moon">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Asteroid)">
+        <MappingFragment StoreEntitySet="CelestialBodySet_Asteroid">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Nebula)">
+        <MappingFragment StoreEntitySet="CelestialBodySet_Nebula">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SkillAssignmentSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.SkillAssignment)">
+        <MappingFragment StoreEntitySet="SkillAssignmentSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+          <ScalarProperty Name="CorporationId" ColumnName="CorporationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeatureAssignmentSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.FeatureAssignment)">
+        <MappingFragment StoreEntitySet="FeatureAssignmentSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FeatureId" ColumnName="FeatureId" />
+          <ScalarProperty Name="CorporationId" ColumnName="CorporationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FleetSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Fleet)">
+        <MappingFragment StoreEntitySet="FleetSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShipSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Ship)">
+        <MappingFragment StoreEntitySet="ShipSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StationSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Station)">
+        <MappingFragment StoreEntitySet="StationSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShipTypeSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.ShipType)">
+        <MappingFragment StoreEntitySet="ShipTypeSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StationModuleSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.StationModule)">
+        <MappingFragment StoreEntitySet="StationModuleSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StationModuleAssignmentSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.StationModuleAssignment)">
+        <MappingFragment StoreEntitySet="StationModuleAssignmentSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StationId" ColumnName="StationId" />
+          <ScalarProperty Name="StationModuleId" ColumnName="StationModuleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StationTypeSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.StationType)">
+        <MappingFragment StoreEntitySet="StationTypeSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobStatusInfoSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.JobStatusInfo)">
+        <MappingFragment StoreEntitySet="JobStatusInfoSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="Progress" ColumnName="Progress" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Succeded" ColumnName="Succeded" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="UserCorporation" TypeName="Model1.UserCorporation" StoreEntitySet="CorporationSet">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="Users_Id" />
+      </EndProperty>
+      <EndProperty Name="Corporation">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ClusterCorporation" TypeName="Model1.ClusterCorporation" StoreEntitySet="CorporationSet">
+      <EndProperty Name="Cluster">
+        <ScalarProperty Name="Id" ColumnName="Cluster_Id" />
+      </EndProperty>
+      <EndProperty Name="Corporation">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ClusterStar" TypeName="Model1.ClusterStar" StoreEntitySet="CelestialBodySet_Star">
+      <EndProperty Name="Cluster">
+        <ScalarProperty Name="Id" ColumnName="Cluster_Id" />
+      </EndProperty>
+      <EndProperty Name="Star">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="StarPlanet" TypeName="Model1.StarPlanet" StoreEntitySet="CelestialBodySet_Planet">
+      <EndProperty Name="Star">
+        <ScalarProperty Name="Id" ColumnName="Star_Id" />
+      </EndProperty>
+      <EndProperty Name="Planet">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PlanetMoon" TypeName="Model1.PlanetMoon" StoreEntitySet="CelestialBodySet_Moon">
+      <EndProperty Name="Planet">
+        <ScalarProperty Name="Id" ColumnName="Planet_Id" />
+      </EndProperty>
+      <EndProperty Name="Moon">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="StarAsteroid" TypeName="Model1.StarAsteroid" StoreEntitySet="CelestialBodySet_Asteroid">
+      <EndProperty Name="Star">
+        <ScalarProperty Name="Id" ColumnName="Star_Id" />
+      </EndProperty>
+      <EndProperty Name="Asteroid">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="StarNebula" TypeName="Model1.StarNebula" StoreEntitySet="CelestialBodySet_Nebula">
+      <EndProperty Name="Star">
+        <ScalarProperty Name="Id" ColumnName="Star_Id" />
+      </EndProperty>
+      <EndProperty Name="Nebula">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ClassCorporation" TypeName="Model1.ClassCorporation" StoreEntitySet="CorporationSet">
+      <EndProperty Name="Class">
+        <ScalarProperty Name="Id" ColumnName="Class_Id" />
+      </EndProperty>
+      <EndProperty Name="Corporation">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ClassSkill" TypeName="Model1.ClassSkill" StoreEntitySet="SkillSet">
+      <EndProperty Name="Class">
+        <ScalarProperty Name="Id" ColumnName="Class_Id" />
+      </EndProperty>
+      <EndProperty Name="Skill">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="StationCelestialBody" TypeName="Model1.StationCelestialBody" StoreEntitySet="StationSet">
+      <EndProperty Name="CelestialBody">
+        <ScalarProperty Name="Id" ColumnName="CelestialBody_Id" />
+      </EndProperty>
+      <EndProperty Name="Station">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FleetCelestialBody" TypeName="Model1.FleetCelestialBody" StoreEntitySet="FleetSet">
+      <EndProperty Name="CelestialBody">
+        <ScalarProperty Name="Id" ColumnName="Origin_Id" />
+      </EndProperty>
+      <EndProperty Name="Fleet">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FleetShip" TypeName="Model1.FleetShip" StoreEntitySet="ShipSet">
+      <EndProperty Name="Fleet">
+        <ScalarProperty Name="Id" ColumnName="Fleet_Id" />
+      </EndProperty>
+      <EndProperty Name="Ship">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ShipTypeShip" TypeName="Model1.ShipTypeShip" StoreEntitySet="ShipSet">
+      <EndProperty Name="ShipType">
+        <ScalarProperty Name="Id" ColumnName="ShipType_Id" />
+      </EndProperty>
+      <EndProperty Name="Ship">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="StationTypeStation" TypeName="Model1.StationTypeStation" StoreEntitySet="StationSet">
+      <EndProperty Name="StationType">
+        <ScalarProperty Name="Id" ColumnName="StationType_Id" />
+      </EndProperty>
+      <EndProperty Name="Station">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CelestialBodyFleet" TypeName="Model1.CelestialBodyFleet" StoreEntitySet="FleetSet">
+      <EndProperty Name="CelestialBody">
+        <ScalarProperty Name="Id" ColumnName="Destination_Id" />
+      </EndProperty>
+      <EndProperty Name="Fleet">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Destination_Id" IsNull="false" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

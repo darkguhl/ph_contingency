@@ -1,0 +1,25 @@
+﻿@Model ph_admin.ViewModels.Log.LogViewModel
+@{
+    ViewData["Title"] = "Log";
+}
+<h2>@ViewData["Title"]</h2>
+
+<table>
+    <tr>
+        <th>Time</th>
+        <th>Level</th>
+        <th>CallingMemberName</th>
+        <th>Message</th>
+        <th>Line</th>
+    </tr>
+    @foreach (var item in Model.LogEntries)
+    {
+        <tr>
+            <td>@item.Time</td>
+            <td>@item.Level.ToString()</td>
+            <td>@item.MemberName</td>
+            <td>@item.Message</td>
+            <td>@item.LineNumber</td>
+        </tr>
+    }
+</table>

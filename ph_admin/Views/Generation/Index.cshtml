@@ -1,0 +1,21 @@
+﻿@model ph_model.Universe
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<h3>Existing Clusters: </h3>
+@foreach (var item in Model.Clusters)
+{
+    <div>
+        @Html.LabelFor(x => item.Name)
+        @Html.DisplayFor(x => item.Name)
+    </div>
+    <div>
+        @Html.LabelFor(x => item.Stars.Count)
+        @Html.DisplayFor(x => item.Stars.Count)
+    </div>
+}
+
+@Html.ActionLink("Generate New", "AddCluster", "Generation")

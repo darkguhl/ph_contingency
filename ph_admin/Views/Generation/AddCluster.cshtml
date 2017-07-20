@@ -1,0 +1,75 @@
+﻿@model ph_model.Cluster
+
+@{
+    ViewBag.Title = "Cluster";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add New Cluster</h2>
+
+@using (Html.BeginForm("AddCluster", "Generation", FormMethod.Post, new { id = "clusterform"}))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Cluster</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.StarsToGenerate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.StarsToGenerate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.StarsToGenerate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.ExtentX, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ExtentX, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ExtentX, "", new { @class = "text-danger" })
+            </div>
+            @Html.LabelFor(model => model.ExtentY, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ExtentY, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ExtentY, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @*<input type="submit" value="Generate" class="btn btn-default"/>*@
+                <div id="btnGenerate" class="btn btn-default">Generate</div>
+            </div>
+        </div>
+    </div>
+}
+<div >
+    <span id="status">not set</span>
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $("#btnGenerate").click(function() {
+            $("#status").text("generating");
+            var formdata = $("#clusterform").serialize();
+            $.post('@Url.Action("AddCluster", "Generation")', formdata, function (data) {
+                alert('finished');
+                $("#status").text("finished");
+            });
+            
+        })
+    </script>
+}
